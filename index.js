@@ -62,7 +62,7 @@ module.exports = function(options) {
 			taskName = parents.join(':') + ':' + taskName;
 		}
 
-		gulp.task(taskName, dependencies, func.bind(context));
+		gulp.task(taskName, gulp.series(dependencies, func.bind(context)));
 	}
 
 	function loadTasks(currentPath) {
